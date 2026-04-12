@@ -58,6 +58,7 @@ public class Registration {
         } while (!checkcellPhoneNum(SaPhonenum));
     }
 
+
     /**
      * Validates that the username is exactly 5 characters and contains an underscore.
      */
@@ -65,9 +66,12 @@ public class Registration {
         return username.matches("\\w{5}") && username.contains("_");
     }
 
-    /**
-     * Validates that the password meets the complexity rules.
-     */
+
+    
+     /**
+      *  Validates that the password meets the complexity rules.
+      */
+     
     public boolean checkPasswordComplexity(String password) {
         return password.length() >= 8
                 && password.matches(".*[A-Z].*")
