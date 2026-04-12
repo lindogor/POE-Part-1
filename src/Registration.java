@@ -39,24 +39,5 @@ public class Registration {
 
     }
 
-//Methods
-        public boolean checkUsername (String username){
-            return username.matches("\\w{5}") && username.contains("_");
-        }
-        public boolean checkPasswordComplexity (String password){
-            return password.length() >= 8
-                    && password.matches(".*[A-Z].*")
-                    && password.matches(".*\\d.*")
-                    && password.matches(".*[^a-zA-Z0-9].*")
-                    && !password.contains("_");
-        }
-        public boolean checkcellPhoneNum (String phonenumber){
-            String regex = "^\\+27\\d{9}$";
-            boolean isValid = phonenumber.matches(regex);
-            if (isValid) {
-            } else {
-            }
-            return isValid;
-        }
-    }
+
 
