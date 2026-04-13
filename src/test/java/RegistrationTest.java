@@ -9,5 +9,22 @@ public class RegistrationTest{
       boolean actualResponse = registration.checkUsername(username);
       assertEquals(true, actualResponse);
    }
+
+@Test
+      public void testCheckPasswordComplexity() {
+    Registration registration = new Registration();
+      String password = "Ch&&sec@ke99!";
+      boolean actualResponse = registration.checkPasswordComplexity(password);
+      assertEquals(true, actualResponse);
+   }
+
+   @Test 
+   public void testCheckPasswordComplexity1() {
+    Registration registration = new Registration();
+      String password = "password";
+      assertEquals(false, registration.checkPasswordComplexity(password));
 }
 
+
+
+}
