@@ -4,13 +4,13 @@ import org.junit.jupiter.api.Test;
 public class RegistrationTest{
     @Test
       public void testCheckUsername() {
-    Registration registration = new Registration();
+     Registration registration = new Registration();
       String username = "kyl_1";
       boolean actualResponse = registration.checkUsername(username);
       assertEquals(true, actualResponse);
    }
    @Test
-   public void testCheckUsername1() {
+   public void testCheckUsernameInvalid() {
     Registration registration = new Registration();
       String username = "kyle!!!!!!!";
       boolean actualResponse = registration.checkUsername(username);
@@ -26,7 +26,7 @@ public class RegistrationTest{
    }
 
    @Test 
-   public void testCheckPasswordComplexity1() {
+   public void testCheckPasswordComplexityInvalid() {
     Registration registration = new Registration();
       String password = "password";
       assertEquals(false, registration.checkPasswordComplexity(password));
@@ -41,7 +41,7 @@ public void testcheckCellPhoneNum() {
 }
 
 @Test
-public void testcheckCellPhoneNum1() {
+public void testcheckCellPhoneNumInvalid() {
  Registration registration = new Registration();   
    String SaPhonenum = "08966553";
    assertEquals(false, registration.checkcellPhoneNum(SaPhonenum));
