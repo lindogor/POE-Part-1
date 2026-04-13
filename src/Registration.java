@@ -65,9 +65,6 @@ public class Registration {
     public boolean checkUsername(String username) {
         return username.matches("\\w{5}") && username.contains("_");
     }
-
-
-    
      /**
       *  Validates that the password meets the complexity rules.
       */
