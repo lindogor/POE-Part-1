@@ -9,6 +9,13 @@ public class RegistrationTest{
       boolean actualResponse = registration.checkUsername(username);
       assertEquals(true, actualResponse);
    }
+   @Test
+   public void testCheckUsername1() {
+    Registration registration = new Registration();
+      String username = "kyle!!!!!!!";
+      boolean actualResponse = registration.checkUsername(username);
+      assertEquals(false, actualResponse);
+   }
 
 @Test
       public void testCheckPasswordComplexity() {
@@ -25,6 +32,18 @@ public class RegistrationTest{
       assertEquals(false, registration.checkPasswordComplexity(password));
 }
 
+@Test 
+public void testcheckCellPhoneNum() {
+ Registration registration = new Registration();
+   String SaPhonenum = "+27838968976";
+   assertEquals(true, registration.checkcellPhoneNum(SaPhonenum));
 
+}
 
+@Test
+public void testcheckCellPhoneNum1() {
+ Registration registration = new Registration();   
+   String SaPhonenum = "08966553";
+   assertEquals(false, registration.checkcellPhoneNum(SaPhonenum));
+}
 }
