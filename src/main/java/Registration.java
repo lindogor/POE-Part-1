@@ -38,7 +38,7 @@ public class Registration {
         } while (!checkUsername(username));
 
         do {
-            System.out.println("Enter Password (8 characters min, 1 Capital letter,1 special char, no underscore).");
+            System.out.println("Enter Password (8 characters min. Include: a Capital letter, a special character, a number).");
             password = scanner.next();
             if (checkPasswordComplexity(password)) {
                 System.out.println("Password successfully captured.");
@@ -57,12 +57,14 @@ public class Registration {
             }
         } while (!checkcellPhoneNum(SaPhonenum));
     }
-
+//Methods to validate user input based on the specified registration rules.
 
     /**
      * Validates that the username is exactly 5 characters and contains an underscore.
      */
     public boolean checkUsername(String username) {
+        // \\w{5} matches exactly 5 word characters (letters, digits, or underscores)
+        // contains("_") ensures at least one underscore is present
         return username.matches("\\w{5}") && username.contains("_");
     }
      /**
@@ -70,6 +72,11 @@ public class Registration {
       */
      
     public boolean checkPasswordComplexity(String password) {
+        // Check minimum length of 8 characters
+        // .*[A-Z].* matches if there's at least one uppercase letter
+        // .*\d.* matches if there's at least one digit
+        // .*[^\w].* matches if there's at least one special character (non-word character)
+        // !password.contains("_") ensures no underscore is present
         return password.length() >= 8
                 && password.matches(".*[A-Z].*")
                 && password.matches(".*\\d.*")
@@ -81,6 +88,7 @@ public class Registration {
      * Validates that the phone number is a South African number beginning with +27.
      */
     public boolean checkcellPhoneNum(String phonenumber) {
+        // ^\\+27\\d{9}$ matches strings that start with +27 followed by exactly 9 digits
         String regex = "^\\+27\\d{9}$";
         boolean isValid = phonenumber.matches(regex);
         return isValid;

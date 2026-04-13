@@ -51,6 +51,8 @@ public class Login {
      * Username validation rules are duplicated here to support consistent checks.
      */
     public boolean checkUsername(String username) {
+        // \\w{5} matches exactly 5 word characters (letters, digits, or underscores)
+        // contains("_") ensures at least one underscore is present
         return username.matches("\\w{5}") && username.contains("_");
     }
 
@@ -58,17 +60,23 @@ public class Login {
      * Password complexity rules are duplicated here to support consistent checks.
      */
     public boolean checkPasswordComplexity(String password) {
+        // Check minimum length of 8 characters
+        // .*[A-Z].* matches if there's at least one uppercase letter
+        // .*\d.* matches if there's at least one digit
+        // .*[^\w].* matches if there's at least one special character (non-word character)
+        // !password.contains("_") ensures no underscore is present
         return password.length() >= 8
                 && password.matches(".*[A-Z].*")
                 && password.matches(".*\\d.*")
                 && password.matches(".*[^a-zA-Z0-9].*")
                 && !password.contains("_");
     }
-
+//Methods of the Registration class are duplicated here to allow for validation during login as well, ensuring that the same rules apply when checking credentials.
     /**
      * Validates a South African phone number format.
      */
     public boolean checkcellPhoneNum(String phonenumber) {
+        // ^\\+27\\d{9}$ matches strings that start with +27 followed by exactly 9 digits
         String regex = "^\\+27\\d{9}$";
         return phonenumber.matches(regex);
     }
