@@ -34,7 +34,10 @@ public class Login {
             }
         } while (!loggedIn);
 
-        System.out.println("Welcome " + Name + " " + LastName + ", it is great to see you again.");
+        System.out.println(getWelcomeMessage(Name, LastName));
+    }
+    public String getWelcomeMessage(String name, String lastName) {
+        return "Welcome " + name + ", " + lastName + " it is great to see you again.";
     }
 
     /**
