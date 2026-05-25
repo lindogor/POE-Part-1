@@ -12,5 +12,7 @@ public class Main {
         login.Name = registration.Name;
         login.LastName = registration.LastName;
         login.loginDetails();
+        Message message = new Message();
+        Message.main(args);
     }
 }
